@@ -1,0 +1,74 @@
+{
+  "info": {
+    "_postman_id": "gym-member-profile-api",
+    "name": "Gym Member Profile API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3001"
+    },
+    {
+      "key": "memberId",
+      "value": "PUT_MEMBER_ID_HERE"
+    }
+  ],
+  "item": [
+    {
+      "name": "Create Member Profile",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"memberName\": \"Mayukh Neogi\",\n  \"dob\": \"2001-05-15\",\n  \"contactNumber\": \"9876543210\",\n  \"alternateContactNumber\": \"9123456780\",\n  \"memberEmail\": \"mayukh@example.com\",\n  \"address\": \"Kolkata, West Bengal\",\n  \"memberGender\": \"Male\"\n}"
+        },
+        "url": "{{baseUrl}}/api/member_profiles"
+      }
+    },
+    {
+      "name": "Get All Member Profiles",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/member_profiles"
+      }
+    },
+    {
+      "name": "Get Member Profile By ID",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/member_profiles/{{memberId}}"
+      }
+    },
+    {
+      "name": "Update Member Profile",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"memberName\": \"Updated Member Name\",\n  \"contactNumber\": \"9999999999\",\n  \"memberEmail\": \"updated@example.com\",\n  \"address\": \"Updated Address\"\n}"
+        },
+        "url": "{{baseUrl}}/api/member_profiles/{{memberId}}"
+      }
+    },
+    {
+      "name": "Delete Member Profile",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/api/member_profiles/{{memberId}}"
+      }
+    }
+  ]
+}
