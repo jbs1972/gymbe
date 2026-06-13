@@ -9,33 +9,22 @@ const options = {
     info: {
       title: "Gym Member Profile REST API",
       version: "1.0.0",
-      description:
-        "Professional REST API for Gym Member Profile Management using Express.js and MongoDB",
+      description: `Gym Member Profile Management using Express.js and MongoDB (${config.nodeEnv.toUpperCase()})`,
 
-      contact: {
-        name: "API Support",
-        email: "support@example.com",
-      },
+      // contact: {
+      //   name: "API Support",
+      //   email: "support@example.com",
+      // },
 
-      license: {
-        name: "MIT",
-      },
+      // license: {
+      //   name: "MIT",
+      // },
     },
 
     servers: [
       {
-        url: "http://localhost:3001",
-        description: "Development Server",
-      },
-
-      {
-        url: "https://uat.example.com",
-        description: "UAT Server",
-      },
-
-      {
-        url: "https://api.example.com",
-        description: "Production Server",
+        url: `http://localhost:${config.port}`,
+        description: `${config.nodeEnv.toUpperCase()} Server`,
       },
     ],
 
@@ -44,7 +33,15 @@ const options = {
         MemberProfile: {
           type: "object",
 
-          required: ["memberName", "dob", "contactNumber", "memberEmail", "memberAddr", "memberGender", "memberBloodGroup"],
+          required: [
+            "memberName",
+            "dob",
+            "contactNumber",
+            "memberEmail",
+            "memberAddr",
+            "memberGender",
+            "memberBloodGroup",
+          ],
 
           properties: {
             _id: {
@@ -127,7 +124,15 @@ const options = {
         MemberProfileCreateRequest: {
           type: "object",
 
-          required: ["memberName", "dob", "contactNumber", "memberEmail", "memberAddr", "memberGender", "memberBloodGroup"],
+          required: [
+            "memberName",
+            "dob",
+            "contactNumber",
+            "memberEmail",
+            "memberAddr",
+            "memberGender",
+            "memberBloodGroup",
+          ],
 
           properties: {
             memberName: {

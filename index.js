@@ -9,11 +9,13 @@ const memberProfileRouter = require("./routes/MemberProfileRoutes");
 const app = express();
 
 // Middleware
-app.use(cors({
-  origin: ["http://localhost:5173", "http://localhost:3000"],
-  methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
-  credentials: true,
-}));
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "http://localhost:3000"],
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+    credentials: true,
+  }),
+);
 app.use(express.json());
 
 // Swagger Documentation
@@ -24,7 +26,10 @@ app.use("/api/member_profiles", memberProfileRouter);
 
 // Root endpoint
 app.get("/", (req, res) => {
-  res.json({ message: "Gym Management API", docs: "http://localhost:3001/api-docs" });
+  res.json({
+    message: "Gym Management API",
+    docs: "http://localhost:3001/api-docs",
+  });
 });
 
 // Connect to MongoDB
@@ -32,7 +37,13 @@ connectDatabase();
 
 // Start Server
 app.listen(config.port, () => {
-  console.log(`Server is running on port ${config.port}`);
+  console.log("=================================");
+  console.log(`✅ Application Started Successfully`);
+  console.log(`✅ Base URL           : http://localhost:${config.port}`);
+  console.log(
+    `✅ Swagger URL        : http://localhost:${config.port}/api-docs`,
+  );
+  console.log("=================================");
 });
 
 module.exports = app;
